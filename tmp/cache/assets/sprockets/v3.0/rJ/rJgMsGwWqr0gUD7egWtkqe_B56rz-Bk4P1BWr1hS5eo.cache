@@ -1,0 +1,7 @@
+I"p(function() {
+  $("#hideTest").on(click(function() {
+    return $("hideTest").hide;
+  }));
+
+}).call(this);
+:ET

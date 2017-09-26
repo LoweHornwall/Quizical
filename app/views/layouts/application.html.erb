@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div id="header">
+  		<div id="loginField">
+	  		<% if current_user %>
+	  			Signed in as <%= current_user.name %> | <%= link_to 'Log out', '/logout' %>
+	  		<% else %>
+	  			Log in here!
+	  			<%= form_tag '/login' do %>
+	  				<%= text_field_tag :email, nil, placeholder: "email" %>
+	  				<%= password_field_tag :password, nil, placeholder: "password" %>
+
+	  				<%= submit_tag "Log in" %>
+	  			<% end %>	
+	  			Don't have an account? <%= link_to 'Register!', new_user_path %>
+	  		<% end %>	
+	  		
+	  	</div>
+	  	<%= flash.notice %>	
+  	</div>
+    <%= yield %>
+  </body>
+</html>

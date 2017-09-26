@@ -1,0 +1,9 @@
+I"ù(function() {
+  $("document").ready(function() {
+    return $("#hideTest").click(function() {
+      return $("hideTest").hide;
+    });
+  });
+
+}).call(this);
+:ET

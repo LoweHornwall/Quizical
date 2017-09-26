@@ -1,0 +1,11 @@
+I"Ý(function() {
+  $(document).on('ready page:load', function() {
+    return $(document).ready(function() {
+      return $("#p1").mouseenter(function() {
+        return $("#p1").hide;
+      });
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,9 @@
+I"¥(function() {
+  $(document).on("turbolinks:load", function() {
+    return $("#p1").mouseenter(function() {
+      return $("#p1").hide;
+    });
+  });
+
+}).call(this);
+:ET

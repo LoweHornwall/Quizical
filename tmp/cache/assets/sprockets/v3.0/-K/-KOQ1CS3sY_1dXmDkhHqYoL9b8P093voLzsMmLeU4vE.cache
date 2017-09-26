@@ -1,0 +1,9 @@
+I"ž(function() {
+  $(document).on("turbolinks:load", function() {
+    return $("p1").click(function() {
+      return $(self).hide;
+    });
+  });
+
+}).call(this);
+:ET

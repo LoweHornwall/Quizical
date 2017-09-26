@@ -1,0 +1,15 @@
+I"(function() {
+  var change;
+
+  $(document).on("turbolinks:load", function() {
+    return $("p1").click(function() {
+      return $(self).hide;
+    });
+  });
+
+  change = function() {
+    return document.getElementById('element').innerHTML = 'blah_blah';
+  };
+
+}).call(this);
+:ET

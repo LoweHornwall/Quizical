@@ -1,0 +1,15 @@
+I"è(function() {
+  var alerting;
+
+  $(document).on("turbolinks:load", function() {
+    return $("p1").click(function() {
+      return alert("yey");
+    });
+  });
+
+  alerting = function() {
+    return alert("hey");
+  };
+
+}).call(this);
+:ET

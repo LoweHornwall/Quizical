@@ -1,0 +1,9 @@
+I"Ÿ(function() {
+  $(document).on("turbolinks:load", function() {
+    return $("p1").click(function() {
+      return alert("weyy");
+    });
+  });
+
+}).call(this);
+:ET

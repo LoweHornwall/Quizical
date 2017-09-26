@@ -1,0 +1,9 @@
+I"‘(function() {
+  $(document).ready(function() {
+    return $("p").mouseenter(function() {
+      return $("p").hide;
+    });
+  });
+
+}).call(this);
+:ET

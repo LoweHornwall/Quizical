@@ -1,0 +1,19 @@
+<script>
+	$(document).ready(function(){
+
+		
+	});
+
+
+</script>
+
+
+<%= link_to 'Back', root_path %>
+
+<% if current_user %>
+	<h1>Create new quiz</h1>
+		<%= render 'form' %>
+<% else %>
+	<p>sign in to be able to create a quiz</p>
+<% end %>		
+

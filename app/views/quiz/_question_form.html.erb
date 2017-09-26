@@ -1,0 +1,24 @@
+<div class="fields">
+	<%= f.label :description %><br>
+	<%= f.text_field :description, :required => true, maxlength: 128 %>
+	<p class="error_field"></p>
+
+	<%= f.label :correct_answer %><br>
+	<%= f.text_field :correct_answer, :required => true, maxlength: 128 %>
+	<p class="error_field"></p>
+
+	<%= f.label :answer_option_1, "Incorrect answer 1" %><br>
+	<%= f.text_field :answer_option_1, :required => true, maxlength: 128 %>
+	<p class="error_field"></p>
+
+	<%= f.label :answer_option_2, "Incorrect answer 2" %><br>
+	<%= f.text_field :answer_option_2, :required => true, maxlength: 128 %>
+	<p class="error_field"></p>
+
+	<%= f.label :answer_option_3, "Incorrect answer 3" %><br>
+	<%= f.text_field :answer_option_3, :required => true, maxlength: 128 %>
+	<p class="error_field"></p>
+	
+	<p class="hello"><%= link_to "Remove Question", '', :onclick => "remove_question(this)", :remote => true %></p>
+	<br>	
+</div>		

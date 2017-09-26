@@ -1,0 +1,63 @@
+<script>
+	$( document ).on('turbolinks:load', function() {
+		$(":submit").click(function() {
+			$(":text").each(function() {
+				if ( $(this).val().length === 0) {
+					$(this).nextAll(".error_field").first().html("<p style='color:red;'>* Field needs to be filled.</p>");
+				}
+			});
+		});
+
+		$("#form").on('input', ":input", function () {
+			$(this).nextAll(".error_field").first().html("<p></p>");
+		});
+
+		var number_of_allowed_questions = 5
+		$("#addButton").click(function() {
+			if ( $(".fields:visible").length >= number_of_allowed_questions) {
+				$("#addButton").hide();
+			}
+		});
+
+		$("#form").on('click', ".hello", function () {
+			if ( $(".fields:visible").length <= number_of_allowed_questions) {
+				$("#addButton").show();
+			}
+		});
+
+	});
+
+	
+</script>
+<div id="form">
+	<%= form_for(@quiz) do |f| %>
+			<% if @quiz.errors.any? %>
+				<div id="errors">
+					<h2>
+						<%= pluralize(@quiz.errors.count, "error") %>
+						prohibited the quiz from being saved:
+					</h2>
+
+					<% @quiz.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>	
+				</div>	
+			<% end %>	
+			
+			<%= f.label :name %>
+			<%= f.text_field :name, :required => true, maxlength: 128 %>
+			<p class="error_field"></p>
+			
+			<%= f.label :category %>
+			<%= f.select(:category, options_for_select([['Games', 'Games'], ['Sports', 'Sports'], ['Music', 'Music']], :selected => params[:category])) %>
+			
+			<h2>Questions</h2>
+			<%= f.fields_for :questions do |ff| %>	
+				<%= render 'question_form', :f => ff %>
+			<% end %>
+			<p id="addButton"><%= link_to_add_question "Add Question", f %></p>
+			<%= f.submit %>	
+	<% end %>			
+</div>		
+
+
