@@ -1,4 +1,13 @@
 class QuizController < ApplicationController
+  def index
+    @quizzes = Quiz.all
+  end
+
+  def show
+    @quiz = Quiz.find_by_name(params[:name])
+    @creator = User.find(@quiz.creator_id)
+  end
+
   def new
     @quiz = Quiz.new
 
@@ -8,11 +17,18 @@ class QuizController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     @quiz.creator_id = current_user.id
+
     if @quiz.save
       redirect_to root_path
     else
       render 'new'
     end    
+  end
+
+  def play
+    @quiz = Quiz.find_by_name(params[:name])
+
+    @questions = @quiz.questions.shuffle
   end
 
 

@@ -1,0 +1,43 @@
+<script>
+	var score = 0;
+	$( document ).on('turbolinks:load', function() {
+		$(".question:not(:eq(0))").hide();
+		var question_amount = $(".question").length;
+		var current_question = 0;
+		$(".answer").click( function(){
+			$(".question:eq(" + current_question + ")").hide();
+			current_question += 1
+			$(".question:eq(" + current_question + ")").show();
+
+			if (current_question == question_amount) {
+				$("#score").text("Final score:" + score);
+			}
+		});
+		
+	});
+	
+	function checkAns(correct_answer, answer) {
+		if (correct_answer == answer) {
+			score = score + 1;
+			$("#score").text(score);
+		}
+	}
+</script>
+<%= link_to 'Back', quizzes_path %>
+
+<% @questions.each do |question| %>
+	<div class="question">
+		<h2><%= question.description %></h2>
+
+		<% array = [question.correct_answer, question.answer_option_1, question.answer_option_2, question.answer_option_3].shuffle %>
+
+		<% array.each do |option| %>
+			<!--<p class="answer"><%= link_to_check_answer question, option %></p> -->
+			<%= link_to option, '', onclick: "checkAns(\"#{question.correct_answer}\", \"#{option}\")", remote: true, class: :answer %>
+		<% end %>	
+	</div>
+<% end %>	
+
+<div id="result"></div>
+
+<div id="score">0</div>

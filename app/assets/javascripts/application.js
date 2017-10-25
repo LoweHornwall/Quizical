@@ -32,3 +32,7 @@ function add_question(link, content) {
 	$(link).parent().before(content.replace(regexp, new_id));
 }
 
+function show_result(link, result) {
+	$("#result").append(result + " ");
+	console.log(score);
+}

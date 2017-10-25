@@ -1,0 +1,6 @@
+<%= link_to 'Back', root_path %><br>
+<% @quizzes.each do |quiz| %>
+	<%= link_to quiz.name, quiz_path(quiz) %>
+	<b>Category:</b> <%= quiz.category %>
+	<br>	
+<% end %>		

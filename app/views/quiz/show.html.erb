@@ -1,0 +1,16 @@
+<%= link_to 'Back', quizzes_path %>
+<h1><%= @quiz.name %></h1>
+<p><b>Category:</b> <%= @quiz.category %></p>
+<p><b>Number of Questions:</b> <%= @quiz.questions.count %>
+<p><b>Created by:</b> <%= @creator.name %></p>
+
+<%= link_to "Play", play_quiz_path(@quiz) %> 
+<% if current_user == @creator %>
+	
+	| Edit placeholder
+<% end %>	
+
+<h2>Comments</h2>
+<h2>Rating</h2>
+<h2>First time score</h2>
+<h2>First time Friend leaderboard</h2>

@@ -1,5 +1,7 @@
 <h1>Hello</h1>
 
+<%= link_to 'View quizzes', quizzes_path %><br>
+
 <% if current_user %>
 	<%= link_to 'Create new quiz', quizzes_new_path %>
 <% else %>

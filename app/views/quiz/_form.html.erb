@@ -49,8 +49,7 @@
 			<p class="error_field"></p>
 			
 			<%= f.label :category %>
-			<%= f.select(:category, options_for_select([['Games', 'Games'], ['Sports', 'Sports'], ['Music', 'Music']], :selected => params[:category])) %>
-			
+			<%= f.select(:category, options_for_select(['Games', 'Sports', 'Music'], @quiz.category)) %>
 			<h2>Questions</h2>
 			<%= f.fields_for :questions do |ff| %>	
 				<%= render 'question_form', :f => ff %>
