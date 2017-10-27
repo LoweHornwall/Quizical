@@ -4,7 +4,7 @@ class QuizController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.find_by_name(params[:name])
+    @quiz = Quiz.find(params[:id])
     @creator = User.find(@quiz.creator_id)
   end
 
@@ -26,9 +26,11 @@ class QuizController < ApplicationController
   end
 
   def play
-    @quiz = Quiz.find_by_name(params[:name])
-
-    @questions = @quiz.questions.shuffle
+    @quiz = Quiz.find(params[:id])
+    @questions = @quiz.questions
+    if params['Shuffled_Questions'] == '1'
+      @questions = @questions.shuffle
+    end  
   end
 
 

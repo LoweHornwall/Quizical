@@ -4,13 +4,21 @@
 <p><b>Number of Questions:</b> <%= @quiz.questions.count %>
 <p><b>Created by:</b> <%= @creator.name %></p>
 
-<%= link_to "Play", play_quiz_path(@quiz) %> 
+<%= form_tag("/quizzes/play/#{@quiz.id}", method: :get, enforce_utf8: false) do %>
+	Shuffle Questions
+	<%= check_box_tag 'Shuffled_Questions', 1, true %><br>
+
+	<%= submit_tag 'Play', name: nil %> 
+<% end %>
+
+
+<!--<%= link_to "Play", play_quiz_path(@quiz) %> -->
 <% if current_user == @creator %>
-	
-	| Edit placeholder
+	Edit placeholder
 <% end %>	
 
 <h2>Comments</h2>
 <h2>Rating</h2>
+<h2>Highscore</h2>
 <h2>First time score</h2>
-<h2>First time Friend leaderboard</h2>
+<h2>First time score Friend leaderboard</h2>

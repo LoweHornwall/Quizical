@@ -10,7 +10,7 @@
 			$(".question:eq(" + current_question + ")").show();
 
 			if (current_question == question_amount) {
-				$("#score").text("Final score:" + score);
+				$("#score").text("Final Score: " + score);
 			}
 		});
 		
@@ -19,11 +19,11 @@
 	function checkAns(correct_answer, answer) {
 		if (correct_answer == answer) {
 			score = score + 1;
-			$("#score").text(score);
+			$("#score").text("Score: " + score);
 		}
 	}
 </script>
-<%= link_to 'Back', quizzes_path %>
+<%= link_to 'Back', quiz_path(@quiz) %>
 
 <% @questions.each do |question| %>
 	<div class="question">
@@ -40,4 +40,4 @@
 
 <div id="result"></div>
 
-<div id="score">0</div>
+<div id="score">Score: 0</div>

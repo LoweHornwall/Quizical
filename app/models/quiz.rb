@@ -8,8 +8,4 @@ class Quiz < ApplicationRecord
   validates :name, uniqueness: true
   # validates that the inputted category is one of the selectable ones.
   validates :category, :inclusion => { :in => ['Games', 'Sports', 'Music'], :message => "%{value} is not a valid category"}
-
-  def to_param
-    name
-  end  
 end
